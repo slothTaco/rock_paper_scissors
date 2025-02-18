@@ -1,3 +1,5 @@
+console.log("Hello World!")
+
 function getComputerChoice() {
     let compChoices = ["ROCK", "PAPER", "SCISSORS"]
     // Let computer pick from options: rock paper or scissors.
