@@ -1,13 +1,15 @@
 
 // Human and computer scores both inizialized to zero for global scope.
-humanScore = 0
-computerScore = 0
+let humanScore = 0
+let computerScore = 0
 
 function getHumanChoice() {
     //Takes player choice of Rock, paper and scissors.
     // will return players choice.
         let humanChoice = prompt("Pick: Rock, paper or scissors! ")
         return humanChoice;
+        
+        
 
 }
 
@@ -28,3 +30,21 @@ function getComputerChoice() {
     }
     
  }
+
+function playRound(humanChoice, compChoices) {
+    // Takes player and computer choices as arguments,
+    // Plays a single round.
+    // increments the round winner's score and logs winner announcement.
+    
+    if (humanChoice === compChoices) {
+        return "Draw!"
+    }
+
+
+ }
+
+const humanSelection = getHumanChoice()
+const computerSelection = getComputerChoice()
+
+playRound(humanSelection, computerSelection)
+ 
