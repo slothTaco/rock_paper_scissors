@@ -18,9 +18,9 @@ function playGame(){
         }
     }
 
-    // Write the logic to get the human choice
+    // logic forhuman choice
     function getHumanChoice() {
-        let choice = prompt("Please enter either 'rock', 'paper' or 'scissors'").toLowerCase()
+        let choice = prompt("Enter: 'rock', 'paper' or 'scissors'").toLowerCase()
         if (choice == 'rock' || choice == 'paper' || choice == 'scissors') {
             return choice
         } else {
@@ -29,7 +29,7 @@ function playGame(){
         }  
     }
 
-    // Write the logic to play a single round
+    // logic to play a single round
     function playRound(humanChoice, computerChoice) {
         
         if (humanChoice == computerChoice) {
@@ -47,14 +47,14 @@ function playGame(){
             computerScore++
         }    
     }
-    
+    // plays through 5 rounds.
     playRound(getHumanChoice(), getComputerChoice())
     playRound(getHumanChoice(), getComputerChoice())
     playRound(getHumanChoice(), getComputerChoice())
     playRound(getHumanChoice(), getComputerChoice())
     playRound(getHumanChoice(), getComputerChoice())
 
-
+    // final print out once all rounds have been played.
     if (humanScore > computerScore) {
         console.log(`YAY! you win with ${humanScore} points. The computer sucks. 
             ${computerScore} points. Go you`)
