@@ -1,50 +1,69 @@
+function playGame(){
 
-// Human and computer scores both inizialized to zero for global scope.
-let humanScore = 0
-let computerScore = 0
+    //  players & computer score variables
+    let humanScore = 0
+    let computerScore = 0
 
-function getHumanChoice() {
-    //Takes player choice of Rock, paper and scissors.
-    // will return players choice.
-        let humanChoice = prompt("Pick: Rock, paper or scissors! ")
-        return humanChoice;
+    // logic for computer choice
+    function getComputerChoice() {
+        let choice = Math.floor(Math.random() * 3) 
+        if (choice == 0) {
+            return 'rock'
+        }
+        if (choice == 1) {
+            return 'paper'
+        }
+        if (choice == 2) {
+            return 'scissors'
+        }
+    }
+
+    // Write the logic to get the human choice
+    function getHumanChoice() {
+        let choice = prompt("Please enter either 'rock', 'paper' or 'scissors'").toLowerCase()
+        if (choice == 'rock' || choice == 'paper' || choice == 'scissors') {
+            return choice
+        } else {
+            alert("That is not a valid choice. Please follow the instructions given!")
+            return getHumanChoice()
+        }  
+    }
+
+    // Write the logic to play a single round
+    function playRound(humanChoice, computerChoice) {
         
-        
+        if (humanChoice == computerChoice) {
+            console.log(`It was a tie. Both players chose ${humanChoice}`)
+        } else if (
+            (humanChoice == 'rock' && computerChoice == 'scissors') ||
+            (humanChoice == 'paper' && computerChoice == 'rock') ||
+            (humanChoice == 'scissors' && computerChoice == 'paper') 
+        ){
+            
+            console.log(`YAY! you won. you chose ${humanChoice}`)  
+            humanScore++
+        } else {
+            console.log(`TBooooooo! you loose, computer chose ${computerChoice}`)
+            computerScore++
+        }    
+    }
+    
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
+    playRound(getHumanChoice(), getComputerChoice())
 
+
+    if (humanScore > computerScore) {
+        console.log(`YAY! you win with ${humanScore} points. The computer sucks. 
+            ${computerScore} points. Go you`)
+    } else if (humanScore < computerScore) {
+        console.log(`You suck, you scored ${humanScore} points. 
+            The computer wins with ${computerScore} points. You lose!`)
+    } else {
+        console.log(`It's a tie! Both scored ${humanScore} points`)
+    }
 }
 
-function getComputerChoice() {
-    let compChoices = ["ROCK", "PAPER", "SCISSORS"]
-    // Let computer pick from options: rock paper or scissors.
-    let randomCompChoice = Math.floor(Math.random() * compChoices.length) + 1
-    // randomize options: rock, paper, scissors.
- 
-    if (randomCompChoice === 1) {
-     return "ROCK";
-    } 
-    if (randomCompChoice === 2) {
-     return "PAPER";
-    }
-    if (randomCompChoice === 3) {
-     return "SCISSORS"
-    }
-    
- }
-
-function playRound(humanChoice, compChoices) {
-    // Takes player and computer choices as arguments,
-    // Plays a single round.
-    // increments the round winner's score and logs winner announcement.
-    
-    if (humanChoice === compChoices) {
-        return "Draw!"
-    }
-
-
- }
-
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
-
-playRound(humanSelection, computerSelection)
- 
+playGame()  
